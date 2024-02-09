@@ -1,4 +1,4 @@
-package com.wo.gestao_vagas.modules.candidates.controllers;
+package com.wo.gestao_vagas.modules.controllers;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
