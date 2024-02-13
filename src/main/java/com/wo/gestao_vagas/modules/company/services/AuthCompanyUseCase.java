@@ -1,5 +1,7 @@
 package com.wo.gestao_vagas.modules.company.services;
 
+import java.time.*;
+
 import javax.security.sasl.AuthenticationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,7 @@ public class AuthCompanyUseCase {
         // se não for igual -> Gerar token
         Algorithm algorithm = Algorithm.HMAC256(secretKey);
         var token = JWT.create().withIssuer("javagas")
+                .withExpiresAt(Instant.now().plus(Duration.ofHours(2)))
                 .withSubject(company.getId().toString())
                 .sign(algorithm);
         return token;
